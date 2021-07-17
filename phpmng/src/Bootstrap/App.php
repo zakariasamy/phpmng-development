@@ -1,6 +1,7 @@
 <?php
 
 namespace Phpmng\Bootstrap; // This namespace defined in composer.json
+use Phpmng\File\File;
 use Phpmng\Http\Server;
 use Phpmng\Http\Request;
 use Phpmng\Cookie\Cookie;
@@ -15,7 +16,6 @@ class app{
         Whoops::handle();
 
         // start session
-         
         Session::start();
         //Session::set('name', 'ziko');
         //Session::set('age', '22');
@@ -30,19 +30,29 @@ class app{
         // print_r(Cookie::all());
 
 
-        echo '<pre>';
+        // echo '<pre>';
         
-        print_r(Server::all()); 
-        echo'</pre>';
+        // print_r(Server::all()); 
+        // echo'</pre>';
 
         //echo Server::get('PHP_SELF');
         
         //echo dirname(Server::get('SCRIPT_NAME'));
         //print_r(Server::path_info('http://phpmng.test/'));
 
+        # Handle the requests
         Request::handle();
-        echo Request::get('name');
-        print_r(Request::previous());
+        //echo Request::get('name');
+        //print_r(Request::previous());
+
+
+        // echo File::path('routes/web.php');
+        // echo File::exists('routes/web.php');
+        // print_r(File::require_directory('routes'));
+        //File::require_file('routes/web.php');
+
+        # Require all route files in route directory
+        File::require_directory('routes');
         
     }
 

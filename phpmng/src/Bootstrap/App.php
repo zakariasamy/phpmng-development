@@ -4,6 +4,7 @@ namespace Phpmng\Bootstrap; // This namespace defined in composer.json
 use Phpmng\Cookie\Cookie;
 use Phpmng\Session\Session;
 use Phpmng\Exceptions\Whoops;
+use Phpmng\Http\Server;
 
 class app{
 
@@ -24,8 +25,18 @@ class app{
         //print_r(Session::all());
 
         //Cookie::set('name', 'ziko');
-        Cookie::removeAll();
-        print_r(Cookie::all());
+        // Cookie::removeAll();
+        // print_r(Cookie::all());
+
+        
+        echo '<pre>';
+        
+        print_r(Server::all()); 
+        echo'</pre>';
+
+        echo Server::get('PHP_SELF');
+   
+        //print_r(Server::path_info('http://phpmng.test/'));
         
     }
 

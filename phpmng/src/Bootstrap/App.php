@@ -6,6 +6,7 @@ use Phpmng\Http\Server;
 use Phpmng\Http\Request;
 use Phpmng\Router\Route;
 use Phpmng\Cookie\Cookie;
+use Phpmng\Http\Response;
 use Phpmng\Session\Session;
 use Phpmng\Exceptions\Whoops;
 
@@ -60,11 +61,13 @@ class app{
         echo '</pre>';
 
         // Handle the routes
-        echo $data = Route::handle();
+        $data = Route::handle();
         
         //print_r( Route::invoke(['middleware'=>'admin'],[]));
         //echo Route::executeMiddleware(['middleware' => 'admin']);
-
+        
+        # Show the data returned by Route
+        Response::output($data);
 
         
     }

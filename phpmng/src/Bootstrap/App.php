@@ -60,7 +60,7 @@ class app{
         echo '</pre>';
 
         // Handle the routes
-        $data = Route::handle();
+        echo $data = Route::handle();
         
         //print_r( Route::invoke(['middleware'=>'admin'],[]));
         //echo Route::executeMiddleware(['middleware' => 'admin']);

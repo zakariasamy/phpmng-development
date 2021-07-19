@@ -145,7 +145,7 @@ class Route{
     }
 
     /**
-     * Handle the request from user in url and make sure that it match any route
+     * Get Url from user & check if it match any route
      * 
      * @return mixed
      */
@@ -155,9 +155,9 @@ class Route{
         # Check on every route that it's lie what user typed
         foreach(static::$routes as $route){
 
-            # convert /user/{id}/edit to /user/([a-zA-Z0-9]*)/edit
+            # convert /user/{id}/edit to /user/([a-zA-Z0-9]+)/edit
             // note that we used # as delimiter in php at end & beginning or other special chars as rules of php
-            $pattern = preg_replace('#{(.*?)}#', '([a-zA-Z0-9]*)', $route['url']);
+            $pattern = preg_replace('#{(.*?)}#', '([a-zA-Z0-9]+)', $route['url']);
             
             if(preg_match('#' . $pattern . '#', $url, $matches)){ 
                 // Now we made sure ther's match in url this route

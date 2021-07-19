@@ -4,6 +4,7 @@ namespace Phpmng\Bootstrap; // This namespace defined in composer.json
 use Phpmng\File\File;
 use Phpmng\Http\Server;
 use Phpmng\Http\Request;
+use Phpmng\Router\Route;
 use Phpmng\Cookie\Cookie;
 use Phpmng\Session\Session;
 use Phpmng\Exceptions\Whoops;
@@ -53,6 +54,18 @@ class app{
 
         # Require all route files in route directory
         File::require_directory('routes');
+
+        echo '<pre>';
+        print_r(Route::allRoutes());
+        echo '</pre>';
+
+        // Handle the routes
+        $data = Route::handle();
+        
+        //print_r( Route::invoke(['middleware'=>'admin'],[]));
+        //echo Route::executeMiddleware(['middleware' => 'admin']);
+
+
         
     }
 

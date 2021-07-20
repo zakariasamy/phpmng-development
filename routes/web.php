@@ -2,7 +2,12 @@
 
 use Phpmng\Router\Route;
 
-Route::get('/user/{id}/edit', 'HomeController@index');
+//Route::get('/user/{id}/edit', 'HomeController@index');
+Route::get('/admin/dashboard', 'HomeController@index');
+
+Route::get('/try', function(){
+    return '<a href="/user/1/edit">click</a>';
+});
 Route::any('/home', 'HomeController@index');
 
 Route::prefix('admin', function(){

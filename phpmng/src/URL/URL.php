@@ -14,7 +14,8 @@ class URL{
      */
 
      public static function path($path){
-         return Request::baseUrl() . '/' . $path;
+         $path = trim($path, '/');
+         return trim(Request::baseUrl(), '/') . '/' . $path;
      }
 
      public static function previous(){

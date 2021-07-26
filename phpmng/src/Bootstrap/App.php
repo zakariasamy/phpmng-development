@@ -56,9 +56,9 @@ class app{
         # Require all route files in route directory
         File::require_directory('routes');
 
-        echo '<pre>';
-        print_r(Route::allRoutes());
-        echo '</pre>';
+        // echo '<pre>';
+        // print_r(Route::allRoutes());
+        // echo '</pre>';
 
         // Handle the routes
         $data = Route::handle();
@@ -68,6 +68,9 @@ class app{
         
         # Show the data returned by Route
         Response::output($data);
+
+      
+
 
         
     }

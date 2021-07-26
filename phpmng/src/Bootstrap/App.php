@@ -70,7 +70,12 @@ class app{
         Response::output($data);
 
       
+        $route = '/admin/dashboard/{id}';
 
+        $last = strrpos($route, '/');
+        echo '<br>';
+        echo substr($route, $last + 1);
+        
 
         
     }

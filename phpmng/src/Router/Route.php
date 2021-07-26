@@ -166,6 +166,21 @@ class Route{
                 // Solution : count the number of / in url and route
                 if(substr_count($url, '/') != substr_count($route['url'], '/'))
                     continue;
+
+                /**another case : if we write existed url like: admi/dash as admin/dasha123 it will be accepted
+                *  Solution : check if last word in URL (dash123) = last word in route (dash) in case
+                *  the last word is not variable like {id}
+                */
+                if($route['url'][-1] != '}'){ // Not Variable like in /user/{id}
+                    $developer_last_word_position = strrpos($route['url'], '/') + 1;
+                    $browser_last_word_position = strrpos($url, '/') + 1;
+
+                    $developer_last_word = substr($route['url'], $developer_last_word_position);
+                    $browser_last_word = substr($url, $browser_last_word_position);
+                    if($developer_last_word != $browser_last_word)
+                        continue;
+            }
+
                 
                 if($route['method'] != Request::method())
                     continue; // There's no match

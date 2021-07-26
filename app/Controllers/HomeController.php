@@ -1,9 +1,10 @@
 <?php
 namespace App\Controllers;
 
-use Phpmng\Database\Database;
 use Phpmng\URL\URL;
+use App\Models\User;
 use Phpmng\View\View;
+use Phpmng\Database\Database;
 
 
 class HomeController{
@@ -18,8 +19,11 @@ class HomeController{
         //return Database::table('users')->where('id', '=', '8')->update(['name' => 'mohamed']);
         //return Database::table('users')->select('name')->where('id', '=', 1)->get();
         //return Database::table('users')->select('name')->paginate(2);
-        $users = Database::table('users')->paginate(2);
-        return View::render('admin.dashboard', ['users' => $users]);
+        //return $users = Database::table('users')->paginate(2);
+        //return View::render('admin.dashboard', ['users' => $users]);
+
+        // Test User Model
+        return $users = User::paginate(2);
 
     }
 

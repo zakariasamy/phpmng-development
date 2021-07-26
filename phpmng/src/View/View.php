@@ -1,7 +1,8 @@
 <?php
 namespace Phpmng\View;
-use Jenssegers\Blade\Blade;
 use Phpmng\File\File;
+use Jenssegers\Blade\Blade;
+use Phpmng\Session\Session;
 
 class View{
 
@@ -10,6 +11,9 @@ class View{
  */
 
     public static function render($path, $data){
+        $errors = Session::flash('errors');  // take the values of erros & remove it from session
+        $old = Session::flash('old');
+        $data = array_merge($data, ['errors' => $errors, 'old' => $old]);
         return static::bladeRender($path, $data);
     }
     /**

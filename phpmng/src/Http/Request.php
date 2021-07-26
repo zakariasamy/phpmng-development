@@ -168,7 +168,7 @@ class Request{
       }
 
       /**
-      * Get previous URL entered the page from it
+      * Get All data from Request
       * 
       * @return array
       */

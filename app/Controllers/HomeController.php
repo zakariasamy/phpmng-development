@@ -23,8 +23,10 @@ class HomeController{
         //return View::render('admin.dashboard', ['users' => $users]);
 
         // Test User Model
-        return $users = User::paginate(2);
+        $users = User::paginate(2);
 
+        // Test Helper function
+        return view('admin.dashboard', ['users' => $users]);
     }
 
 

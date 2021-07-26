@@ -1,6 +1,7 @@
 <?php
 
 namespace Phpmng\Bootstrap; // This namespace defined in composer.json
+use Phpmng\URL\URL;
 use Phpmng\File\File;
 use Phpmng\Http\Server;
 use Phpmng\Http\Request;
@@ -69,7 +70,7 @@ class app{
         # Show the data returned by Route
         Response::output($data);
 
- 
+        //redirect(URL::path('home'));
         
     }
 

@@ -556,7 +556,7 @@ class Database {
      * @param int $number_of_links : except the arrows shown with links
      * @return string $result
      */
-    public static function links($current_page, $pages, $number_of_links){
+    public static function links($current_page, $pages, $number_of_links = 5){
         $html = '';
         
         $half = ($number_of_links - 1) / 2;

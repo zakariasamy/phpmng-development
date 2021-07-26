@@ -141,6 +141,19 @@ class Request{
     }
 
     /**
+     * Get value from get or post request
+     * 
+     * @param $key
+     * @return string $value
+     */
+    public static function value($key){
+        if(Request::has($key))
+            return $_REQUEST[$key];
+        else
+            return null;
+    }
+
+    /**
      * Check on request data that it has $key
      */
 

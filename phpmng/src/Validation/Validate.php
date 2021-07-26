@@ -35,7 +35,7 @@ class Validate
             if($json)
                 return ['errors' => $errors->firstOfAll()];
             else{
-                Session::set('errors', $erros); //erros
+                Session::set('errors', $errors); //erros
                 Session::set('old', Request::all()); // Get old data
                 return URL::redirect(URL::previous());
                 

@@ -2,6 +2,7 @@
 
 namespace Phpmng\Router;
 
+use Phpmng\View\View;
 use Phpmng\Http\Request;
 
 class Route{
@@ -179,7 +180,7 @@ class Route{
             
         } // End foreach
 
-        return "Page Not found";
+        return View::render('errors.404', []);
     }
 
     /**

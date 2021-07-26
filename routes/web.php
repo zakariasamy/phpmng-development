@@ -3,6 +3,7 @@
 use Phpmng\Router\Route;
 
 //Route::get('/user/{id}/edit', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/admin/dashboard', 'HomeController@index');
 
 Route::get('/try', function(){
@@ -12,7 +13,7 @@ Route::any('/home', 'HomeController@index');
 
 Route::prefix('admin', function(){
     Route::middleware('Admin|Owner', function(){
-        
+
         //Route::get('category/{id}', 'CategoryController@index');
         //Route::post('category', 'CategoryController@index');
     
